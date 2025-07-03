@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Alert from '@mui/material/Alert';
@@ -81,9 +80,9 @@ const Dashboard: React.FC = () => {
         {error && <Alert severity="error" sx={{ mt: 2 }}>{error}</Alert>}
         {success && <Alert severity="success" sx={{ mt: 2 }}>{success}</Alert>}
       </Box>
-      <Grid container spacing={2}>
+      <Box display="flex" flexWrap="wrap" gap={2} justifyContent="center">
         {photos.map(photo => (
-          <Grid item xs={12} sm={6} md={4} key={photo.id}>
+          <Box key={photo.id} width={300} mb={2}>
             <Card>
               <CardMedia
                 component="img"
@@ -92,9 +91,9 @@ const Dashboard: React.FC = () => {
                 alt="Uploaded"
               />
             </Card>
-          </Grid>
+          </Box>
         ))}
-      </Grid>
+      </Box>
     </Box>
   );
 };
