@@ -1,10 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Button, Grid, Card, CardMedia, Alert } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import Alert from '@mui/material/Alert';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+interface Photo {
+  id: number;
+  url: string;
+  createdAt: string;
+}
+
 const Dashboard: React.FC = () => {
-  const [photos, setPhotos] = useState<any[]>([]);
+  const [photos, setPhotos] = useState<Photo[]>([]);
   const [file, setFile] = useState<File | null>(null);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -71,7 +83,7 @@ const Dashboard: React.FC = () => {
       </Box>
       <Grid container spacing={2}>
         {photos.map(photo => (
-          <Grid item xs={12} sm={6} md={4} key={photo._id}>
+          <Grid item xs={12} sm={6} md={4} key={photo.id as React.Key}>
             <Card>
               <CardMedia
                 component="img"
