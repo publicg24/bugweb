@@ -5,7 +5,7 @@ A full stack web application for uploading and viewing photos with authenticatio
 ## Tech Stack
 
 - **Frontend:** React, Material-UI, Axios
-- **Backend:** Node.js, Express, MongoDB, Multer, JWT
+- **Backend:** Node.js, Express, SQLite, Multer, JWT
 
 ## Features
 - User signup and login
@@ -43,9 +43,15 @@ Visit: http://localhost:3000
 ---
 
 ## Development
-- Make sure MongoDB is running locally or update the connection string in `/server/.env`.
+- The backend now uses SQLite. No MongoDB setup is required.
 - The backend runs on port 5000 by default.
 - The frontend runs on port 3000 by default.
+
+---
+
+## Deployment
+- The backend API is deployed at https://bugweb.onrender.com
+- The frontend should use this URL for all API requests.
 
 ---
 

@@ -25,7 +25,7 @@ const Dashboard: React.FC = () => {
   const fetchPhotos = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:5000/api/photos', {
+      const res = await axios.get('https://bugweb.onrender.com/api/photos', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPhotos(res.data);
@@ -48,7 +48,7 @@ const Dashboard: React.FC = () => {
       const token = localStorage.getItem('token');
       const formData = new FormData();
       formData.append('photo', file);
-      await axios.post('http://localhost:5000/api/photos/upload', formData, {
+      await axios.post('https://bugweb.onrender.com/api/photos/upload', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data',
@@ -83,12 +83,12 @@ const Dashboard: React.FC = () => {
       </Box>
       <Grid container spacing={2}>
         {photos.map(photo => (
-          <Grid item xs={12} sm={6} md={4} key={photo.id as React.Key}>
+          <Grid item xs={12} sm={6} md={4} key={photo.id}>
             <Card>
               <CardMedia
                 component="img"
                 height="200"
-                image={`http://localhost:5000${photo.url}`}
+                image={`https://bugweb.onrender.com${photo.url}`}
                 alt="Uploaded"
               />
             </Card>

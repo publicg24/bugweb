@@ -15,7 +15,7 @@ const Signup: React.FC = () => {
     setError('');
     setSuccess('');
     try {
-      await axios.post('http://localhost:5000/api/auth/signup', { username, password });
+      await axios.post('https://bugweb.onrender.com/api/auth/signup', { username, password });
       setSuccess('Signup successful! Please login.');
       setTimeout(() => navigate('/login'), 1500);
     } catch (err: any) {
